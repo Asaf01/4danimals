@@ -1,0 +1,36 @@
+Install Apache server on Ubuntu
+sudo apt install apache2
+
+Install php runtime and php mysql connector
+sudo apt install php libapache2-mod-php php-mysql
+
+Install MySQL server
+sudo apt install mysql-server 
+
+Login to MySQL server
+sudo mysql -u root
+
+Change authentication plugin to mysql_native_password (change the password to something strong)
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by '********';
+
+Create a new database user for wordpress (change the password to something strong)
+CREATE USER 'wp_user'@localhost IDENTIFIED BY '***********';
+
+Create a database for wordpress
+CREATE DATABASE wp;
+
+Grant all privilges on the database 'wp' to the newly created user
+GRANT ALL PRIVILEGES ON wp.* TO 'wp_user'@localhost;
+
+Download wordpress
+Unzip
+
+Move wordpress folder to apache document root
+sudo mv wordpress/ /var/www/html
+
+restart apache server
+sudo systemctl restart apache2
+
+
+
+
