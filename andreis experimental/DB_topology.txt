@@ -1,0 +1,83 @@
+Table Animal {
+  id integer [primary key]
+  name varchar
+  gender varchar
+  color varchar
+  birth_date date
+  age float
+  species varchar
+  brade_name varchar 
+  chip_number integer
+  spayed_neutered bool
+  arivel date
+  foster bool
+  current_owner integer
+  Vaccines varchar
+  }
+
+Table Breeds {
+  breed_name varchar [primary key]
+  dangerous_species bool
+   }
+
+Table Applicants {
+  id integer [primary key]
+  full_name varchar
+  teudat_zehut varchar
+  address varchar
+  city varchar
+  mail varchar
+  phone varchar
+  approved bool
+  owner_of varchar
+}
+
+Table Volunteers {
+  id integer [primary key]
+  full_name varchar
+  teudat_zehut varchar
+  address varchar
+  city varchar
+  mail varchar
+  phone varchar
+  job_function varchar
+  can_be_foster bool
+  animal_fostered varchar
+}
+
+Table Vaccines {
+  id integer [primary key]
+  Vaccine_name varchar
+  Vaccine_date date
+
+}
+
+Table Foster_application_form {
+  id integer [primary key]
+  full_name varchar
+  phone_number varchar
+  address varchar
+  email varchar
+  foster_dog bool
+  foster_cat bool
+  foster_pups bool
+  foster_kittens bool
+  foster_dog_with_newborns bool
+  foster_newborn_kittens bool
+  has_car bool
+  previous_experience bool
+  detailed_experience varchar
+  other_pets_at_home bool
+  detailed_pets_at_home varchar
+
+}
+
+Ref: Animal.brade_name < Breeds.breed_name 
+Ref: Animal.current_owner < Applicants.full_name
+
+
+Ref: "Animal"."Vaccines" < "Vaccines"."id"
+
+Ref: "Animal"."name" < "Volunteers"."animal_fostered"
+
+Ref: "Applicants"."owner_of" < "Animal"."name"

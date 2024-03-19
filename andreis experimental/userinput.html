@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption Contract</title>
+</head>
+<body>
+    <h1>Adoption Contract</h1>
+    <p>An adoption contract that is being held on <input type="date" id="contractDate" name="contractDate" required> in <input type="text" id="contractLocation" name="contractLocation" placeholder="Address" required>.</p>
+	<p>I,signed below as <input type="name" id="fullName" name="fullName" placeholder="Full Name" required> Social security number: <input type="text" id="teudatZehut" name="teudatZehut" placeholder="teudatZehut" required>.</p>
+    <form id="adoptionForm">
+		<label for="address">Address:</label><br>
+        <input type="text" id="address" name="address" required><br><br>
+        
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+		<p> I gree to this<br>
+				this<br>
+				this<br>
+				this <br>
+				and this!</p>
+        
+        <button type="submit">Apply</button>
+    </form>
+
+    <script>
+        document.getElementById("adoptionForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            const formData = new FormData(event.target);
+            const formObject = {};
+            formData.forEach(function(value, key) {
+                formObject[key] = value;
+            });
+
+            // Send data to backend (assuming you have an endpoint to handle this)
+            fetch('/submitAdoption', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formObject),
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Application submitted successfully!');
+                    // You can redirect the user to another page here if needed
+                } else {
+                    alert('Error submitting application. Please try again later.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting application. Please try again later.');
+            });
+        });
+    </script>
+</body>
+</html>

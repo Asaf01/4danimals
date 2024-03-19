@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+</head>
+<body>
+    <h2>Admin Page</h2>
+    <form action="/show_volunteers" method="get">
+        <button type="submit">Show Volunteers</button>
+    </form>
+    <form action="/show_applicants" method="get">
+        <button type="submit">Show Applicants</button>
+    </form>
+    <form action="/show_animals" method="get">
+        <button type="submit">Show Animals</button>
+    </form>
+    <hr>
+    <h3>Delete Entry</h3>
+    <form action="/delete_entry" method="post">
+        <label for="table">Table:</label>
+        <select id="table" name="table">
+            <option value="Volunteers">Volunteers</option>
+            <option value="Applicants">Applicants</option>
+            <option value="Animal">Animal</option>
+        </select><br>
+        <label for="entry_id">Entry ID:</label>
+        <input type="text" id="entry_id" name="entry_id"><br>
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>
