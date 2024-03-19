@@ -1,6 +1,6 @@
 import requests
 
-endpoint_url = 'https://4danimals.com/wp-json/wp/v2/posts'
+endpoint_url = 'https://4danimals.com/wp-json/wp/v2/posts/'
 
 
 response = requests.get(endpoint_url)
