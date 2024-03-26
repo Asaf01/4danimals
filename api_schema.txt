@@ -1,0 +1,33 @@
+ * Get our sample schema for comments.
+ */
+function bwp_get_post_schema() {
+
+	$schema = array(
+		// This tells the spec of JSON Schema we are using which is draft 4.
+		'$schema'    => 'http://*****************',
+		// The title property marks the identity of the resource.
+		'title'      => '********',
+		'type'       => '*******',
+		// In JSON Schema you can specify object properties in the properties attribute.
+		'properties' => array(
+			'id'      => array(
+				'description' => esc_html__( 'Unique identifier for the object.', 'my-textdomain' ),
+				'type'        => 'integer',
+			),
+			'author'  => array(
+				'description' => esc_html__( 'The id of the user object, if author was a user.', 'my-textdomain' ),
+				'type'        => 'integer',
+			),
+			'content' => array(
+				'description' => esc_html__( 'The content for the object.', 'my-textdomain' ),
+				'type'        => 'string',
+			),
+			'title'   => array(
+				'description' => esc_html__( 'The title for the object.', 'my-textdomain' ),
+				'type'        => 'string',
+			),
+		),
+	);
+
+	return $schema;
+}
